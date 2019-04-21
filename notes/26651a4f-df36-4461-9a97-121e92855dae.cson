@@ -1,0 +1,79 @@
+createdAt: "2019-04-09T20:07:04.648Z"
+updatedAt: "2019-04-11T20:39:58.172Z"
+type: "MARKDOWN_NOTE"
+folder: "5f373a065de0e65b1791"
+title: "SPRINT 01"
+tags: []
+content: '''
+  # SPRINT 01
+  # Nodemcu <-> Arduino
+  
+  
+  # Reference
+  [Add WiFi to Arduino](https://www.youtube.com/watch?v=SiU-QZwik8w)
+  [Serial Communication between NodeMCU and Arduino - Arduino Project Hub](https://create.arduino.cc/projecthub/pawan-kumar3/serial-communication-between-nodemcu-and-arduino-640819)
+  [Arduino : Connecting Arduino UNO with ESP8266 - iCircuit](https://icircuit.net/arduino-connecting-arduino-uno-esp8266/2443)
+  
+  
+  Arduino UNO/ Nano Code:
+  /*
+   * bismillah hir rahman nir raheem
+   * UNO/Nano = Pin 7 & Pin 8
+   * Note: Uno and ESP8266 cross connection
+   */
+  
+  #include <SoftwareSerial.h>
+  SoftwareSerial ArduinoUno(7,8);
+  String f;
+  void setup(){
+        Serial.begin(9600);
+     ArduinoUno.begin(115200);
+  }
+  void loop(){
+    float i = (random(100) + 1);
+    float j = (random(100) + 1);
+   
+   f = String('H')+String(i)+String('T')+String(j);
+    ArduinoUno.println(f);
+  delay(2000);
+  }
+  
+  ESP8266 Code:
+  
+  /*
+   * bismillah hir rahman nir raheem
+   * ESP8266 = Pin D7 & Pin D8
+   * Note: Uno and ESP8266 cross connection
+   */
+  #include <SoftwareSerial.h>
+  #include <ESP8266WiFi.h>
+  
+  SoftwareSerial NodeMCU(D7,D8);
+  
+  void setup(){
+     Serial.begin(9600);
+     NodeMCU.begin(115200);
+     pinMode(D7,INPUT);
+     pinMode(D8,OUTPUT);
+  }
+  
+  void loop(){
+  String content = "";
+  char character;
+  
+    while(NodeMCU.available()) {
+        character = NodeMCU.read();
+        content.concat(character);
+    }
+    if (content != "") {
+      Serial.println(content);
+    }
+   Serial.println("Temperature");
+   Serial.println(content.substring(1, 6));
+   Serial.println("Humidity");
+   Serial.println(content.substring(7, 12));
+     delay(2000);
+  }
+'''
+isStarred: false
+isTrashed: false
