@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<!-- saved from url=(0055)http://ic.unicamp.br/~celio/mc853/atividade2-mc853.html -->
+<html class="gr__ic_unicamp_br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+pre {
+    font-size: large; //medium;
+    font-family: "Arial", sans-serif;
+}
+</style>
+</head>
+<body style="font-size:150%" data-gr-c-s-loaded="true"><title="mc853 -="" projeto="" em="" sistemas="" de="" computação"="">
+<font face="arial"><table width="100%">
+<tbody><tr><td><img src="./atividade2-mc853_files/logo-unicamp--100x100.gif" height="100" width="100" align="left"></td>
+ <td align="center"><h2>Atividade 2 - Economizando energia via Deep Sleep:
+                         <br>Implementação de um "Data Log" na memória RTC do esp8266
+                     </h2></td>
+ <td><img src="./atividade2-mc853_files/logo-ic-100x100.gif" height="100" width="100" align="right"></td>
+</tr></tbody></table>
+<p>
+<i>Atualizado em 15/04/2019</i>
+
+</p><pre>(i) Deseja-se registrar na memória RTC do esp8266, de forma compacta, os seguintes dados
+    obtidos pelo sketch no esp8266 entre sucessivas ocorrencias de "Deep Sleep":
+    hh:mm:ss dia,mes,ano, humidade, temperatura e luminosidade.
+    Apenas um registro deve ser gravado entre sucessivas ocorrencias de Deep Sleep. 
+    (O primeiro bucket pode ser usado para conter um contador de registros gravados até o momento:
+     veja no sketch <i>http://www.ic.unicamp.br/~celio/mc853/sketches/RTCmemDebug1.ino</i>).
+
+(ii) Após a gravação do último registro na memória do RTC um "log textual" deve ser gerado contendo 
+      uma linha para cada registro com o formato, digamos, "hh:mm:ss - dia-mes-ano temperatura humidade luminosidade",
+      que deve ser exibida no Monitor Serial do Arduino. 
+      As gravações de registros devem continuar, começando agora pela primeira posicão da memória do RTC.
+      <b>Obs:</b> na forma atual o log não seria muito útil, pois os registros não estão correlacionados entre si 
+      e não precisariam ser gravados na memória do RTC pois sua forma textual poderia ser simplesmente enviada 
+      para o Monitor Serial ou "publicada" num broker. Por outro lado, se quisermos registrar estatísticas interessantes como: 
+      data e hora da maior e menor temperatura, idem para humidade, idem para luminosidade, a situação seria bem diferente 
+      e a gravação na memória do RTC seria necessária.
+
+(iii)  Após gerar o log seu sketch deve calcular as estatísticas citadas, exibi-las no Monitor Serial e publicá-las
+       no  broker mqtt mosquitto da xaveco.lab.ic.unicamp.br, sob o tópico /RA1-RA2/, (com os RAs do seu grupo).
+       Isto pode ser feito com apenas uma varredura dos registros na memória do RTC, inicializando de forma 
+       apropriada as 6 variáveis para cálculo dos valores máximos e mínimos desejados.
+       <b>Sugestão</b>: copie e cole o "log" exibido no Monitor Serial num arquivo e faça um programa em Python 
+       para obter as estatísticas. Após depurá-lo traduza-o pra C e incorpore no seu sketch do esp8266.
+       <b>Importante:</b> apenas neste momento o Wifi deve ser ativado e a tranmissão para o broker ser feita.
+        O Wifi deve ser então deconectado. Observe que somente após: número de entradas no RTC x tempo entre 
+        sucessivos Deep Sleeps, o Wifi seria ativado, permitindo assim minimizar o consumo de energia.
+</pre></font></title="mc853></body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span><div><div class="gr_-editor gr-iframe-first-load" style="display: none;"><div class="gr_-editor_back"></div><iframe class="gr_-ifr gr-_dialog-content" src="./atividade2-mc853_files/saved_resource.html"></iframe></div></div><grammarly-card><div></div></grammarly-card></html>
