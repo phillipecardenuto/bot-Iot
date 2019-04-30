@@ -4,16 +4,19 @@
  * 
  */
 #include <ESP8266WiFi.h>
+#define Show(string,val) Serial.print(string); Serial.println(val); // string= cadeia/valor, val= variÃ¡vel cujo valor queremos exibir
+
 
 #define Show(string,val)Serial.print(string);Serial.println(val); //macro for common print case
-const char* ssid = "Betel";     // WiFi parameters
-const char* password = "itapoan8";
+const char* ssid = "aula-ic3";
+const char* password = "iotic@2019";
+const char* server = "177.220.84.49";
 
-WiFiServer server(50007); // Create an instance of the server
+//WiFiServer server(50007); // Create an instance of the server
 WiFiClient client;        // and one of client to talk to echoclient
 //*****************************************************************
 void setup() {
-    Serial.begin(115200);
+    Serial.begin(921600);
     delay(10);
     Serial.println();
     Show("Echoserver is connecting to: ",ssid);
@@ -24,26 +27,28 @@ void setup() {
     }
     Serial.println("");
     Serial.println("WiFi connected");
-    server.begin();        // Start the server
+   // server.begin();        // Start the server
     Serial.println("Server started");
     Show("local IP= ",WiFi.localIP());
+    
+    Serial.println("Connected to wifi!");
+    Serial.println("Sending mensage to server");
+    if (client.connect(server,50007)) {
+      Serial.println("Connected to Server!");
+      client.setTimeout(0);              // to cancel implicit 1 sec timeout
+      int ct = 0;
+      while (1){
+        ct+=1;
+        if (ct >= 8) break;
+        String outstring = String(ct);
+        outstring = String("Hello Word " + outstring +"\n");
+        Serial.println(outstring);
+        client.print(outstring);
+      }
+     Serial.println("Finished!");
+    } 
 }
 //**********************************************************
 void loop() {
-    client = server.available();  // Check if a client has connected
-    if (!client)
-        return;                     // no, start loop() again
-    Serial.println("new client");
-    while (!client.available()){
-        delay(1);
-    }
-    while (1){                        //loop will read and echo lines sent by client
-        if (!client.connected())break;
-        client.setTimeout(0);              // to cancel implicit 1 sec timeout
-        String req = client.readString(); //Until('\n'); //Until('\n');  //in this call
-        Serial.print(req);
-        //client.flush(); // this is essential!
-        client.print(req);
-    }             // while loop ends here
-    Serial.println("Client disconnected");
+  
 }
