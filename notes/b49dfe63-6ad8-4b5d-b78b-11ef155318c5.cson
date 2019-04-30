@@ -1,13 +1,13 @@
 createdAt: "2019-04-30T16:40:39.969Z"
-updatedAt: "2019-04-30T16:41:37.991Z"
+updatedAt: "2019-04-30T18:44:31.777Z"
 type: "MARKDOWN_NOTE"
 folder: "c1dd5f0ad17993d9328e"
-title: "Atividade 2"
+title: "Atividade 2 (Feita)"
 tags: [
   "Atividade_2"
 ]
 content: '''
-  # Atividade 2
+  # Atividade 2 (Feita)
   Atualizado em 27/04/2019
   
   (i) Escreva um sketch, echoclient.ino, com funcionalidade similar à do script em python simpleclient.py: ele deve enviar sucessivamente 8 linhas terminadas por '\\n' ao servidor de eco, echoserver.ino, visto em aula (adaptado para ser iterativo), receber e exibir no Monitor Serial as linhas ecoadas pelo servidor e, finalmente, exibir o total de linhas ecoadas e fechar a conexão TCP com o comando client.stop(). Após um delay de 4 segundos ele deve voltar ao início da função loop(). 

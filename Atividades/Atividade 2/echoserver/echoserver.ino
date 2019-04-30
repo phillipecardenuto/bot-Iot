@@ -11,6 +11,7 @@
 const char* ssid = "aula-ic3";
 const char* password = "iotic@2019";
 const char* server = "177.220.84.49";
+bool waiting = true;
 
 //WiFiServer server(50007); // Create an instance of the server
 WiFiClient client;        // and one of client to talk to echoclient
@@ -32,23 +33,37 @@ void setup() {
     Show("local IP= ",WiFi.localIP());
     
     Serial.println("Connected to wifi!");
-    Serial.println("Sending mensage to server");
+   
+}
+//**********************************************************
+void loop() {
+      if (!waiting){
+        Serial.print("Connecting to server .");
+        waiting = true;
+      }
+      else{
+        delay(500);
+        Serial.print(".");
+      }
     if (client.connect(server,50007)) {
+      
       Serial.println("Connected to Server!");
-      client.setTimeout(0);              // to cancel implicit 1 sec timeout
+      client.setTimeout(100);              // to cancel implicit 1 sec timeout
       int ct = 0;
       while (1){
         ct+=1;
         if (ct >= 8) break;
         String outstring = String(ct);
         outstring = String("Hello Word " + outstring +"\n");
-        Serial.println(outstring);
         client.print(outstring);
+        String req = client.readString();
+        Serial.print("Received: ");
+        Serial.println(req);
+        waiting = false;
       }
+     client.stop();
      Serial.println("Finished!");
-    } 
-}
-//**********************************************************
-void loop() {
+     delay(4000);
   
+  }
 }
