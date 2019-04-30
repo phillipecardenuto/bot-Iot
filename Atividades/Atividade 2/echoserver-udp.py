@@ -4,10 +4,10 @@
 
 import socket
 HOST = ''                       # Symbolic name meaning all available interfaces
-PORT = 50002              # Arbitrary non-privileged port
+PORT = 50007              # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # IP4, datagram socket object
 s.bind((HOST, PORT))
-print ('server is waiting for client to send a datagram on port 50007:')
+print ('server is waiting for client to send a datagram on port %d:'%PORT)
 flag=0        # set to 1 when first message is received
 while 1:
     data,addr = s.recvfrom(1024)
