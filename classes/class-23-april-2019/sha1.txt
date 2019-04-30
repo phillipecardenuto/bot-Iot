@@ -1,0 +1,12 @@
+openssl s_client -connect io.adafruit.com:8883 < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
+SHA1 Fingerprint=77:00:54:2D:DA:E7:D8:03:27:31:23:99:EB:27:DB:CB:A5:4C:57:18
+
+openssl s_client -connect api.github.com:443 < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
+SHA1 Fingerprint=5F:F1:60:31:09:04:3E:F2:90:D2:B0:8A:50:38:04:E8:37:9F:BC:76
+
+openssl s_client -connect test.mosquitto.org:8883 < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
+SHA1 Fingerprint=7E:36:22:01:F9:7E:99:2F:C5:DB:3D:BE:AC:48:67:5B:5D:47:94:D2
+
+
+openssl s_client -connect <host>:<port> < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
+

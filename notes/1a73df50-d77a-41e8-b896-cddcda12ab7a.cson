@@ -1,0 +1,22 @@
+createdAt: "2019-04-23T19:50:17.651Z"
+updatedAt: "2019-04-23T20:16:34.375Z"
+type: "MARKDOWN_NOTE"
+folder: "c1dd5f0ad17993d9328e"
+title: "23-ABRIL-2019"
+tags: []
+content: '''
+  # 23-ABRIL-2019
+  
+  ## Configurando um web-server para uma página webbrowser
+  
+  [Site para verificar IP-externo](http://ident.me/)
+  
+  - Utilizando códigos browser.py e webserver.py para configuração da página no servidor
+  - Utilizando o cógigo get_contents_from_a_web_page
+  
+  O código faz com que o arduino poss
+  
+  
+'''
+isStarred: false
+isTrashed: false
