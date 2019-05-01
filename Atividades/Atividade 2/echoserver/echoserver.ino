@@ -43,12 +43,12 @@ void loop() {
       }
       else{
         delay(500);
-        Serial.print(".");
+       // Serial.print(".");
       }
     if (client.connect(server,50007)) {
       
       Serial.println("Connected to Server!");
-      client.setTimeout(100);              // to cancel implicit 1 sec timeout
+      client.setTimeout(0);              // to cancel implicit 1 sec timeout
       int ct = 0;
       while (1){
         ct+=1;
