@@ -1,0 +1,24 @@
+createdAt: "2019-05-01T13:12:01.050Z"
+updatedAt: "2019-05-01T13:25:14.644Z"
+type: "MARKDOWN_NOTE"
+folder: "c1dd5f0ad17993d9328e"
+title: "LCD"
+tags: [
+  "LCD"
+  "Arduino"
+]
+content: '''
+  # LCD
+  
+  Links e Vídeos que mostram a utilização do LCD
+  
+  
+  
+  | ![Arduino LCD](https://img.youtube.com/vi/dZZynJLmTn8/0.jpg) |
+   |:-:|
+   | [**Arduino LCD Tutorial \\| How To Control An LCD**](https://www.youtube.com/watch?v=dZZynJLmTn8) |
+   
+   
+'''
+isStarred: false
+isTrashed: false
