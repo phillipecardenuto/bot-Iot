@@ -1,5 +1,5 @@
 createdAt: "2019-05-01T13:12:01.050Z"
-updatedAt: "2019-05-01T13:25:14.644Z"
+updatedAt: "2019-05-02T00:04:23.549Z"
 type: "MARKDOWN_NOTE"
 folder: "c1dd5f0ad17993d9328e"
 title: "LCD"
@@ -18,7 +18,8 @@ content: '''
    |:-:|
    | [**Arduino LCD Tutorial \\| How To Control An LCD**](https://www.youtube.com/watch?v=dZZynJLmTn8) |
    
-   
+   ### Custom Char Generator
+   link:  [LCD Custom Character Generator](https://maxpromer.github.io/LCD-Character-Creator/)
 '''
 isStarred: false
 isTrashed: false
