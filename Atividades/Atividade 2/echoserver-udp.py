@@ -16,8 +16,8 @@ while 1:
             flag=1
             print ("client socket address= ", addr)  # just once
         sent = s.sendto(data, addr)	# echoes received datafram
-        print ("received and echoed: ",data.decode())
-    else: 
+        print ("received and echoed: ",data)
+    else:
         break    # exit loop when client sends a null message
 print ("Client sent a NULL message! Server quits!")
 
