@@ -1,5 +1,5 @@
 createdAt: "2019-05-01T13:12:01.050Z"
-updatedAt: "2019-05-02T00:57:27.435Z"
+updatedAt: "2019-05-05T02:25:38.588Z"
 type: "MARKDOWN_NOTE"
 folder: "c1dd5f0ad17993d9328e"
 title: "LCD"
@@ -12,16 +12,13 @@ content: '''
   
   Links e Vídeos que mostram a utilização do LCD
   
-  ### Esquema usado nos sketches
+  ### Esquema usado nos sketches :books:  
   |![Montagem LCD.png](:storage/f2049b12-1706-4d27-a440-5b5de63ee916/40e361e8.png)|
   |:-:|
   |**Montagem LCD**|
   
   
-  
-  | ![Arduino LCD](https://img.youtube.com/vi/dZZynJLmTn8/0.jpg) |
-   |:-:|
-   | [**Arduino LCD Tutorial \\| How To Control An LCD**](https://www.youtube.com/watch?v=dZZynJLmTn8) |
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/dZZynJLmTn8" frameborder="0" allowfullscreen></iframe>
    
    ### Custom Char Generator
    link:  [LCD Custom Character Generator](https://maxpromer.github.io/LCD-Character-Creator/)

@@ -13,7 +13,7 @@
 WiFiUDP Udp;
 unsigned int localUdpPort = 50007;
 unsigned int serverPort = 50007;
-const char* serverIP = "177.220.84.49";
+const char* serverIP = "177.220.85.235";
 const char* ssid = "aula-ic3";
 const char* password = "iotic@2019";
 char outPackage[255];

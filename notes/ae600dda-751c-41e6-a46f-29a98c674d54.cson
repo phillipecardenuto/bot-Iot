@@ -1,0 +1,75 @@
+createdAt: "2019-05-09T15:55:25.524Z"
+updatedAt: "2019-05-09T16:00:07.703Z"
+type: "MARKDOWN_NOTE"
+folder: "c1dd5f0ad17993d9328e"
+title: "Setting UP a SERIAL communication"
+tags: [
+  "Arduino"
+]
+content: '''
+  # Setting UP a SERIAL communication
+  
+  
+  ![Circuit-for-Serial-communication-between-NodeMCU-and-Arduino-768x358.png](:storage/ae600dda-751c-41e6-a46f-29a98c674d54/943c9b4c.png)
+  
+  Code:
+  
+  
+  ## On NodeMcu
+  ```#include<SoftwareSerial.h> //Included SoftwareSerial Library
+  //Started SoftwareSerial at RX and TX pin of ESP8266/NodeMCU
+  SoftwareSerial s(3,1);
+  
+  void setup() {
+    //Serial S Begin at 9600 Baud
+    s.begin(9600);
+    
+  }
+  
+  void loop() {
+    //Write '123' to Serial
+    s.write(123);
+    delay(1000);
+  }
+  ```
+  
+  ## On Arduino
+  
+  ```
+  //Initialized variable to store recieved data
+  #include<SoftwareSerial.h> //Included SoftwareSerial Library
+  //Started SoftwareSerial at RX and TX pin of ESP8266/NodeMCU
+  #define HS_KEY 123
+  SoftwareSerial uno_serial(0,1);
+  
+  void serial_hs(){
+    int data=0;
+    while (data != HS_KEY){
+    Serial.print(".");
+    data = uno_serial.read();  
+    delay(1000);
+    }
+  }
+  
+  void setup() {
+    //Serial Begin at 9600 Baud 
+    Serial.begin(115200);
+    Serial.println("SETTING UP ARDUINO | NODEMCU HANDSHAKE");
+    uno_serial.begin(9600);
+     serial_hs();
+    Serial.println("HANDSHAKE DONE!");
+   
+    
+  }
+  
+  void loop() {
+    int data;
+    data = uno_serial.read();
+    Serial.print("Connected: ");
+    Serial.println(data); //Read the serial data and store it
+    delay(1000);
+  }
+  ```
+'''
+isStarred: false
+isTrashed: false

@@ -1,5 +1,5 @@
 createdAt: "2019-04-09T20:07:19.446Z"
-updatedAt: "2019-04-09T20:07:21.283Z"
+updatedAt: "2019-05-09T20:09:22.187Z"
 type: "MARKDOWN_NOTE"
 folder: "5f373a065de0e65b1791"
 title: "IoT Project"
@@ -18,9 +18,7 @@ content: '''
   |  Temp/Umidade  | DHT-11 | |
   |  Barômetro  |   | |
   |  Buzzer  |   | |
-  |  Barômetro  |   | |
   |  Relê  |   | |
-  |  Barômetro  |   | |
   
   ## Schematics 
   To design and simulate an schem use:
@@ -28,8 +26,8 @@ content: '''
   
   ## SPRINTS:
   
-  ## S01 (2-classes)
-  SERIAL NODEMCU -- ARDUINO
+  ## S01 (2-classes) :v:
+  SERIAL NODEMCU -- ARDUINO 
   ## S02 (1-class)
   NODEMCU -- KONKER
   ## S03 (3-classes)

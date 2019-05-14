@@ -1,10 +1,10 @@
 #include <LiquidCrystal.h>
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+LiquidCrystal lcd(D0, D1, D5, D4, D3, D2);
 void setup() {
 lcd.begin(16, 2);
 lcd.print("Funcionou VINA!");
 lcd.cursor();
-
+Serial.begin(115200);
 }
 
 void loop() {
@@ -14,5 +14,6 @@ void loop() {
   String dis = "Uptime: " ;
   dis = dis + millis()/1000 ;
   // print the number of seconds since reset:
+  Serial.println(dis);
   lcd.print(dis);
 }

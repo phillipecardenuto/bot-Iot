@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char* ssid = "***";
-const char* password = "****";
+const char* ssid = "aula-ic3";
+const char* password = "iotic@2019";
 
 WiFiUDP Udp;
 unsigned int localUdpPort = 50007;  // local port to listen on
