@@ -1,0 +1,18 @@
+createdAt: "2019-05-16T18:11:27.251Z"
+updatedAt: "2019-05-16T18:12:34.014Z"
+type: "MARKDOWN_NOTE"
+folder: "c1dd5f0ad17993d9328e"
+title: "Inserting emojis on Telegram bot"
+tags: [
+  "Emojis"
+]
+content: '''
+  # Inserting emojis on Telegram bot
+  [🎁 Emoji cheat sheet for GitHub, Basecamp, Slack & more](https://www.webfx.com/tools/emoji-cheat-sheet/)
+  ## Library:
+  [Emoji · python-telegram-bot/python-telegram-bot Wiki · GitHub](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Emoji)
+  ## Tutorial: 
+  [Extensions – Your first Bot · python-telegram-bot/python-telegram-bot Wiki · GitHub](https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions-%E2%80%93-Your-first-Bot)
+'''
+isStarred: false
+isTrashed: false
