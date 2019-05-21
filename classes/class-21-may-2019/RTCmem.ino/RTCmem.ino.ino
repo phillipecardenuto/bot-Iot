@@ -7,8 +7,16 @@
 #define DHTPIN D2
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+extern "C"{
+#include "user_interface.h"
+}
 
+#define SERVER        "xaveco.lab.ic.unicamp.br" // free MQTT broker
+#define SERVERPORT      1883
 
+#define T_STATS     "stats"
 typedef struct {
   byte hour;
   byte minute;
@@ -235,6 +243,12 @@ void setup() {
       break;
     } else Serial.print("*"); //max 10 trials
   }
+  //Connect to Brocker
+  WiFi.printDiag(Serial);
+  client.setServer(SERVER, SERVERPORT);
+  client.setCallback(callback);
+
+  
   //*********************************************
   #ifdef RESET
     Serial.println ("RESET: clear RTC memory and initialize control bucket");
@@ -243,8 +257,10 @@ void setup() {
     system_rtc_mem_write(64, &bucket64, 4);
     ClearRTCmemory();
   #endif
+  WiFi.mode(WIFI_OFF); //Turn off WiFi
+  
   //************ Read/Write records to RTC Memory**********
-  WiFi.mode(WIFI_OFF);
+
   Show("Number of buckets/rtcMemrecord= ",nbuckets);
   system_rtc_mem_read(64, &bucket64, 4); //read 1st bucket value
   toggleFlag= bucket64.toggleFlag;
@@ -344,8 +360,24 @@ void setup() {
    */
     }
 
-  Serial.println("delay 20 secs before sleep");
   //delay(20000);
   ESP.deepSleep(1000000, WAKE_RFCAL);
 }
 void loop() {}
+
+
+void callback(char* topic, byte * data, unsigned int length) {
+  Serial.print(topic);
+  Serial.print(": ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)data[i]);
+  }
+  Serial.println();
+  if (luminosity < MAX/2)  {
+    digitalWrite(LEDP, LOW);  // led on: led anode to Vcc, catode to P5
+    Serial.println("Turning led ON");
+  } else {
+   digitalWrite(LEDP, HIGH);
+    Serial.println("Turning led OFF");  
+  }
+}
